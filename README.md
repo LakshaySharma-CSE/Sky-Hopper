@@ -29,7 +29,7 @@ Sky Hopper is a browser-based 2D arcade game built with HTML5 Canvas and JavaScr
 ## 📦 Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/<your-username>/sky-hopper.git
+git clone https://github.com/LakshaySharma-CSE/Sky-Hopper
 ````
 
 2. Open the project:
