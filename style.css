@@ -1,0 +1,124 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #08081a;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Orbitron", Arial, sans-serif;
+  padding: 12px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Canvas fills available width, capped at 900px, 16:7 ratio */
+.canvas-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  max-height: 85vh;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid rgba(0, 245, 255, 0.35);
+  box-shadow:
+    0 0 28px rgba(0, 245, 255, 0.12),
+    0 0 60px rgba(0, 245, 255, 0.05);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.controls {
+  display: flex;
+  gap: 14px;
+}
+
+button {
+  font-family: "Orbitron", Arial, sans-serif;
+  font-size: clamp(11px, 2vw, 14px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: clamp(9px, 2vw, 13px) clamp(20px, 4vw, 34px);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    transform 0.1s,
+    box-shadow 0.15s;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+#jumpBtn {
+  background: #00f5ff;
+  color: #05050f;
+  box-shadow: 0 0 14px rgba(0, 245, 255, 0.45);
+}
+#jumpBtn:hover {
+  box-shadow: 0 0 24px rgba(0, 245, 255, 0.7);
+  transform: translateY(-2px);
+}
+#jumpBtn:active {
+  transform: scale(0.95);
+}
+
+button:last-child {
+  background: transparent;
+  color: #ff2d78;
+  border: 1.5px solid #ff2d78;
+  box-shadow: 0 0 10px rgba(255, 45, 120, 0.3);
+}
+button:last-child:hover {
+  background: rgba(255, 45, 120, 0.1);
+  transform: translateY(-2px);
+}
+button:last-child:active {
+  transform: scale(0.95);
+}
+
+.hint {
+  color: rgba(180, 210, 255, 0.28);
+  font-size: clamp(9px, 1.5vw, 11px);
+  letter-spacing: 2px;
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .canvas-wrap {
+    aspect-ratio: 4 / 3;
+    max-height: 60vh;
+  }
+  .hint {
+    display: none;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  body {
+    padding: 8px;
+  }
+  .canvas-wrap {
+    aspect-ratio: 4 / 3;
+    max-height: 55vh;
+  }
+  .controls {
+    gap: 10px;
+  }
+}
